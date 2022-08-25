@@ -1,0 +1,56 @@
+@import "../themes";
+
+.pageList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+  border-radius: 12px;
+}
+
+.bgTertiary {
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+}
+
+.bgSecondlayer {
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+}
+
+.btn {
+  @include themify() {
+    background: t('bg-secondlayer') !important;
+    color: t('text-main') !important;
+  }
+
+  border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 14px 20px;
+  }
+}
+
+.page {
+  @include themify() {
+    cursor: pointer;
+    width: 50px;
+    height: 85%;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    border-radius: 8px;
+    margin: 0 4px;
+    font-size: 20px;
+    font-weight: 600;
+
+    &.current {
+      background: t('secondlayer-accent-bg');
+      color: t('secondlayer-accent-text');
+    }
+  }
+}

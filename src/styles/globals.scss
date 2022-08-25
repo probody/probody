@@ -1,0 +1,170 @@
+@import "blueprint.min.css";
+@import "input.fix.css";
+@import "fonts.scss";
+@import '_reset.scss';
+@import "helpers.scss";
+@import 'themes.scss';
+
+$base-font-size: 16px;
+$heading-scale: 8;
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.roundedMap {
+  @include themify() {
+    background: t('bg-secondlayer')
+  }
+
+  &, & > ymaps {
+    min-height: 300px;
+    height: auto !important;
+    overflow: hidden;
+    border-radius: 24px;
+    width: 100% !important;
+
+    & > ymaps, & > ymaps > ymaps {
+      border-radius: 24px;
+      overflow: hidden;
+    }
+  }
+}
+
+.text-disabled {
+  @include themify() {
+    color: t('text-disabled');
+  }
+}
+
+.stickToBottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
+p.withTab::before {
+  display: inline-block;
+  content: ' ';
+  user-select: none;
+  width: 16px;
+}
+
+input, textarea, select {
+  border: none;
+  min-width: 0;
+  padding: 0;
+  font-family: Lato, sans-serif;
+  transition: background-color 0.2s linear;
+  font-size: 16px;
+  background: transparent;
+
+  @include themify() {
+    color: t('text-main');
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #ccc;
+    //font-family: Lack, sans-serif;
+    user-select: none;
+  }
+}
+
+html, body {
+  //overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #ffc83a85;
+}
+
+* {
+  transition: background-color .3s linear, border-color .3s linear, color .1s linear, box-shadow .3s linear;
+}
+
+.body {
+  box-sizing: border-box !important;
+  @include themify() {
+    background: t('body-bg');
+    color: t('text-main');
+  }
+}
+
+.number-font {
+  font-family: 'Lato', sans-serif !important;
+}
+
+img {
+  user-select: none;
+}
+
+.lack {
+  font-family: Lack, sans-serif;
+}
+
+.subtitle2 {
+  font-size: 20px;
+  font-family: Lack, sans-serif;
+}
+
+@for $i from 1 through 6 {
+  h#{$i}, .h#{$i} {
+    font-family: 'Lack', sans-serif;
+    margin: 0;
+    user-select: none;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+}
+
+.cursor-default * {
+  cursor: default;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 16px;
+}
+
+.text-xl {
+  font-size: 48px;
+}
+
+@media (max-width: 480px) {
+  .responsive-content {
+    margin: 0 16px;
+  }
+
+  .text-xl {
+    font-size: 32px;
+  }
+}

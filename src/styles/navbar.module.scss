@@ -1,0 +1,59 @@
+@import 'themes';
+
+.navbar {
+  align-items: center;
+  margin-bottom: 16px;
+  z-index: 999;
+  padding: 20px 0;
+
+  a {
+    font-family: Lack, sans-serif;
+    text-decoration: unset;
+    @include themify() {
+        color: t('text-main');
+    }
+  }
+
+  &.pc {
+    display: flex !important;
+
+    @include themify() {
+      border-bottom: 1px solid t('line-color');
+    }
+  }
+
+  &.mobile {
+    margin-bottom: 0;
+
+    &::after {
+      content: ' ';
+      width: 100%;
+      height: 1px;
+      @include themify() {
+        background-color: t('line-color');
+      }
+      margin: 16px 16px 0 16px;
+    }
+  }
+}
+
+.rightSplitter {
+  width: 1px;
+  display: inline-block;
+  height: 80%;
+  background: #ccc;
+}
+
+.personalAreaIcon {
+  @include themify() {
+    color: t('another-text-disabled');
+  }
+
+  margin-right: 4px;
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 16px 0;
+  }
+}

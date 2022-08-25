@@ -1,0 +1,49 @@
+@import "../themes";
+
+.head {
+  display: flex;
+  border-radius: 24px;
+  font-family: Lack, sans-serif;
+  gap: 48px;
+  font-size: 20px;
+  padding: 22px 20px;
+
+  .cnt {
+    font-family: Lato, sans-serif;
+    border-radius: 8px;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+    @include themify() {
+      background: t('bg-tertiary');
+      color: t('text-tertiary');
+    }
+  }
+
+  @include themify() {
+    background: t('bg-secondlayer');
+    color: t('text-disabled');
+
+    .enabled {
+        color: t('text-main');
+
+      .cnt {
+        background: t('range');
+        color: t('text-accent');
+      }
+    }
+  }
+
+  &>div {
+    cursor: pointer;
+  }
+}
+
+.body {
+  margin-top: 20px;
+}

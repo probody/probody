@@ -1,0 +1,30 @@
+@import '../themes';
+
+.text {
+  border-radius: 32px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+    color: t('text-secondlayer');
+  }
+  padding: 20px;
+
+  div {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+}
+
+.showMore {
+  @include themify() {
+    color: t('text-main');
+    border-bottom: 1px solid t('bg-primary');
+  }
+
+  user-select: none;
+  cursor: pointer;
+  font-family: Lack, sans-serif;
+  transition: height 0.3s ease;
+  overflow: hidden;
+  display: inline-block;
+}

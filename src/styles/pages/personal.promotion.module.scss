@@ -1,0 +1,221 @@
+@import "../themes";
+@import "../registeredmodal.module";
+@import "../kit/infotp.module";
+
+.editSalonLink {
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  padding: 12px 12px 12px 14px;
+  font-family: Lack, sans-serif;
+  border-radius: 12px;
+
+  @include themify() {
+    border: 1px solid t('line-color');
+
+    &:hover, &:focus {
+      border-color: t('text-main');
+    }
+  }
+
+  i {
+    margin-right: 7px;
+    width: 12px;
+    height: 12px;
+    margin-bottom: 3px;
+  }
+}
+
+.spacer {
+  content: ' ';
+  user-select: none;
+  height: 1px;
+  width: 100%;
+  margin: 24px 0;
+
+  @include themify() {
+    background: t('line-color');
+  }
+}
+
+.tabsHead {
+  gap: 24px;
+
+  &>span {
+    font-family: Lack, sans-serif;
+    &::after {
+      bottom: -10px;
+    }
+  }
+}
+
+.personalInfoBlock {
+  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:last-child {
+    height: 100%;
+  }
+
+  &>div>div:first-child {
+    i {
+      width: 17px;
+      height: 19px;
+      margin-right: 12px;
+      vertical-align: text-bottom;
+    }
+
+    @include themify() {
+      color: t('input-border-color');
+    }
+  }
+
+  button {
+    padding: 5px;
+  }
+}
+
+.goPro {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+  align-items: center;
+  padding: 11px 10px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+
+  div {
+    display: inline-flex;
+    gap: 8px;
+
+    p {
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+  }
+
+  &.pro div {
+    padding: 4px 5px;
+    align-items: flex-end;
+  }
+
+  &:not(.pro) {
+    img {
+      filter: grayscale(1);
+      opacity: .7;
+    }
+  }
+
+  &>span {
+    padding: 4px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    height: fit-content;
+
+    @include themify() {
+      color: t('another-text-disabled');
+    }
+  }
+}
+
+.proHint {
+  line-height: 16px;
+  margin-top: 12px;
+  display: flex;
+
+  i {
+    width: 14px;
+    height: 14px;
+    margin-right: 9px;
+
+    @include themify() {
+      color: t('bg-primary');
+    }
+  }
+
+  span {
+    font-size: 12px;
+
+    @include themify() {
+      color: t('text-disabled');
+    }
+  }
+}
+
+.oldPrice {
+  text-decoration: line-through;
+
+  @include themify() {
+    color: t('inactive-slide');
+  }
+}
+
+.arrowBack {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  i {
+    margin-right: 12px;
+    width: 16px;
+    height: 15px;
+  }
+}
+
+.cnt {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 8px;
+  border-radius: 8px;
+  line-height: 1;
+  margin-left: 8px;
+  font-family: Lato, sans-serif;
+
+  @include themify() {
+    color: t('text-disabled');
+    background: t('bg-secondlayer');
+  }
+
+  &.active {
+    @include themify() {
+      color: t('body-bg');
+      background: t('text-main');
+    }
+  }
+}
+
+.notEnoughMoney {
+  padding: 12px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 24px;
+
+  i {
+    margin-right: 10px;
+    vertical-align: text-bottom;
+  }
+
+  @include themify() {
+    background: transparentize(t('bg-danger'), .82);
+    color: t('bg-danger');
+  }
+}
+
+@media (max-width: 480px) {
+  .editSalonLink {
+    font-size: 14px;
+  }
+
+  .spacer {
+    margin: 12px 0;
+  }
+}

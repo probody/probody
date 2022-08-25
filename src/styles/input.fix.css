@@ -1,0 +1,17 @@
+.theme--dark input:-webkit-autofill,
+.theme--dark input:-webkit-autofill:hover,
+.theme--dark input:-webkit-autofill:active,
+.theme--dark input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px #252420 inset;
+    -webkit-text-fill-color: #fff;
+    background-clip: content-box;
+}
+
+.theme--light input:-webkit-autofill,
+.theme--light input:-webkit-autofill:hover,
+.theme--light input:-webkit-autofill:active,
+.theme--light input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px #fff inset;
+    -webkit-text-fill-color: #252420;
+    background-clip: content-box;
+}

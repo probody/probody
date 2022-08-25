@@ -1,0 +1,56 @@
+@import '../../themes';
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+
+  &:hover:not(.disabled) .checkbox:not(.checked) {
+    @include themify() {
+      border: 1px solid t('bg-accent');
+    }
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .checkbox {
+      margin-right: 8px;
+    }
+  }
+
+  &.disabled {
+    &, .checkbox {
+      cursor: default;
+    }
+
+    opacity: .8;
+
+    .checkbox.checked {
+      @include themify() {
+        background: url("/icons/checkmark.svg") no-repeat center center t('bg-disabled');
+      }
+    }
+  }
+}
+
+.checkbox {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color .2s ease, border-color .2s ease, border-width .2s ease;
+
+  @include themify() {
+    border: 1px solid t('input-border-color');
+    background: t('body-bg');
+  }
+
+  &.checked {
+    border: 0;
+    @include themify() {
+      background: url("/icons/checkmark.svg") no-repeat center center t('bg-primary');
+    }
+  }
+}

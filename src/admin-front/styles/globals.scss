@@ -1,0 +1,305 @@
+@import "../bs/scss/vendor/rfs";
+@import "../bs/scss/functions";
+@import "../bs/scss/variables";
+
+$theme-colors: (
+        "bg-light":    #fff,
+        "bg-darken":   #f8f8f8,
+        "text-primary": #181818,
+        "text-secondary": #5c5c5c,
+        "text-tertiary": #747474,
+        'icons': #7c7b7b,
+        'stroke': #d7d7d7,
+        'dividers': #ededed,
+        'disabled-text': #8a8a8a,
+        'disabled-bg': #efefef,
+        'white': #fff,
+
+        'accent1-primary': #ffc83a,
+        'accent1-secondary': #FFD66B,
+        'accent1-tertiary': #FFEAB5,
+        'accent1-quaternary': #F6F6F6,
+        'accent1-hover': #FFBE45,
+        'accent1-click': #F9B233,
+
+        'accent2-primary': #58536C,
+        'accent2-secondary': #7E7797,
+        'accent2-tertiary': #A9A5BA,
+        'accent2-quaternary': #EAE8EE,
+
+        'success': #3AC922,
+        'success-hover': #28B411,
+        'success-secondary': #B2FFA6,
+        'success-tertiary': #E6FFE2,
+
+        'attention': #F7D523,
+        'attention-hover': #F7D523,
+        'attention-secondary': #FFEF98,
+        'attention-tertiary': #FFFAE1,
+
+        'error': #FF3030,
+        'error-hover': #ED2121,
+        'error-secondary': #FFC0C0,
+        'error-tertiary': #FFF2F2
+);
+
+$dropdown-divider-bg: map-get($theme-colors, 'dividers');
+$spacer: 4;
+$body-bg: map-get($theme-colors, 'light');
+$body-color: map-get($theme-colors, 'light');
+$btn-font-size: 16px;
+$btn-font-weight: 800;
+$btn-padding-x: 24px;
+$btn-padding-y: 12px;
+$btn-border-radius: 12px;
+
+// scss-docs-start import-stack
+// Configuration
+@import "../bs/scss/functions";
+@import "../bs/scss/variables";
+@import "../bs/scss/maps";
+@import "../bs/scss/mixins";
+@import "../bs/scss/utilities";
+
+// Layout & components
+@import "../bs/scss/root";
+@import "../bs/scss/reboot";
+@import "../bs/scss/type";
+@import "../bs/scss/images";
+@import "../bs/scss/containers";
+@import "../bs/scss/grid";
+@import "../bs/scss/tables";
+@import "../bs/scss/forms";
+@import "../bs/scss/buttons";
+@import "../bs/scss/transitions";
+@import "../bs/scss/dropdown";
+@import "../bs/scss/button-group";
+@import "../bs/scss/nav";
+@import "../bs/scss/navbar";
+@import "../bs/scss/card";
+@import "../bs/scss/accordion";
+@import "../bs/scss/breadcrumb";
+@import "../bs/scss/pagination";
+@import "../bs/scss/badge";
+@import "../bs/scss/alert";
+@import "../bs/scss/progress";
+@import "../bs/scss/list-group";
+@import "../bs/scss/close";
+@import "../bs/scss/toasts";
+@import "../bs/scss/modal";
+@import "../bs/scss/tooltip";
+@import "../bs/scss/popover";
+@import "../bs/scss/carousel";
+@import "../bs/scss/spinners";
+@import "../bs/scss/offcanvas";
+@import "../bs/scss/placeholders";
+
+// Helpers
+@import "../bs/scss/helpers";
+
+// Utilities
+@import "../bs/scss/utilities/api";
+@import "../../styles/helpers";
+// scss-docs-end import-stack
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800&display=swap');
+
+@mixin textSBold() {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@mixin desktopH3() {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+@mixin textMBold() {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin textXS() {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@mixin textXSBold() {
+  @include textXS();
+  font-weight: 700;
+}
+
+@mixin textSubtitle2() {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@mixin textM() {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin textSubtitle1Desktop() {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+@for $i from 1 through 6 {
+  h#{$i}, .h#{$i} {
+    margin: 0;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: #ffc83a85;
+}
+
+.textMBold {
+  @include textMBold();
+}
+
+.textM {
+  @include textM();
+}
+
+.textSubtitle1 {
+  @include textSubtitle1Desktop();
+}
+
+.textXSBold {
+  @include textXSBold();
+}
+
+.textSubtitle2 {
+  @include textSubtitle2();
+}
+
+.textXS {
+  @include textXS();
+}
+
+.textSBold {
+  @include textSBold()
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 39px 36px;
+  width: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid map-get($theme-colors, 'dividers');
+}
+
+main {
+  margin-left: 212px;
+
+  nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    z-index: 5;
+    background: #ffffff;
+    padding: 16px 90px;
+    width: calc(100% - 212px);
+    border-bottom: 1px solid map-get($theme-colors, 'dividers');
+  }
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 10px;
+  cursor: pointer;
+
+  svg {
+    width: 13px;
+    height: 12px;
+  }
+
+  @include textSBold();
+
+  &:not(.active) {
+    color: map-get($theme-colors, 'text-tertiary');
+
+    svg path {
+      stroke: map-get($theme-colors, 'text-tertiary');
+    }
+  }
+}
+
+.dropdown-divider {
+  border-top: 1px solid map-get($theme-colors, 'dividers');
+}
+
+h3 {
+  @include desktopH3();
+}
+
+.btn-accent1-tertiary {
+  color: map-get($theme-colors, 'accent2-primary');
+}
+
+.btn-icon-right {
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+
+html, body {
+  //overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #ffc83a85;
+}
+
+* {
+  transition: background-color .3s linear, border-color .3s linear, color .1s linear, box-shadow .3s linear;
+}
+
+input, textarea, select {
+  border: none;
+  min-width: 0;
+  padding: 0;
+  font-family: Lato, sans-serif;
+  transition: background-color 0.2s linear;
+  font-size: 16px;
+  background: transparent;
+
+  &[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #ccc;
+    //font-family: Lack, sans-serif;
+    user-select: none;
+  }
+}

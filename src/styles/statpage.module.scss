@@ -1,0 +1,163 @@
+@import "themes";
+
+.slHeader {
+  padding: 20px;
+  font-family: Lack, sans-serif;
+  font-size: 17px;
+  border-radius: 20px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+}
+
+.doughnutTooltip {
+  //position: relative;
+  //top: 40%;
+  //left: 29%;
+  //max-width: 150px;
+}
+
+.doughnutContentContainer {
+  width: 155px;
+  height: 155px;
+  position: absolute;
+  transition: opacity .15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .percentageText {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+  }
+
+  .captionTitle {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+
+    @include themify() {
+      color: t('text-disabled');
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: 40%;
+  left: 6px;
+
+  &.withoutLine {
+    top: -43px;
+    left: -35px;
+
+    p:before {
+      top: unset;
+      bottom: -3px;
+      left: 45.2%;
+    }
+  }
+
+  p {
+    padding: 8px 16px;
+    border-radius: 10px;
+    position: relative;
+    display: block;
+    font-size: 14px;
+    user-select: none;
+
+    &:before {
+      position: absolute;
+      width: 12px;
+      left: -3px;
+      top: 35%;
+      height: 12px;
+      content: ' ';
+      transform: rotate(45deg);
+      display: inline-block;
+
+      @include themify() {
+        background: t('text-main');
+      }
+    }
+
+    @include themify() {
+      background: t('text-main');
+      color: t('body-bg');
+    }
+  }
+}
+
+.tooltipLine {
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, 0);
+  width: 1px;
+  height: 232px;
+  transition: opacity .15s ease;
+
+  @include themify() {
+    background: t('text-main');
+  }
+}
+
+.tooltipContainer {
+  position: relative;
+  height: 215px;
+}
+
+.legendItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  user-select: none;
+  border-radius: 12px;
+
+  @include themify() {
+    border: 1px solid t('thirdlayer-bg');
+  }
+
+  &, & div {
+    line-height: 1;
+  }
+
+  & > div:first-child {
+    & > span:first-child {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-right: 7px;
+      vertical-align: middle;
+      border-radius: 4px;
+    }
+
+    & > span:last-child {
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+
+  &>div:last-child {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.chart {
+  height: 260px;
+  width: 100%;
+}
+
+.chartContainer {
+  gap: 52px;
+  margin: 20px 0 64px 0;
+  padding: 0 20px;
+}
+
+@media (max-width: 480px) {
+  .chartContainer {
+    gap: 20px;
+  }
+}

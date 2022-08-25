@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Lack';
+  src: url('../fonts/lack_regular.woff2') format('woff2'),
+  url('../fonts/lack_regular.woff') format('woff'),
+  url('../fonts/lack_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/LatoRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}

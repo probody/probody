@@ -1,0 +1,29 @@
+@import "../themes";
+@import "../registeredmodal.module";
+
+.reviewCnt {
+  color: #252420;
+  font-size: 12px;
+  font-weight: 600;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  border-radius: 8px;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+
+  @include themify() {
+    background: t('bg-primary');
+  }
+}
+
+.salonReviews {
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .salonReviews {
+    margin-bottom: 24px;
+  }
+}

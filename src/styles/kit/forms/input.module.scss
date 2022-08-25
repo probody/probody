@@ -1,0 +1,123 @@
+@import "../../themes";
+
+.inputRoot {
+  @include themify() {
+    background: t('body-bg');
+
+    &.outlined {
+      border-radius: 16px;
+      border: 1px solid t('input-border-color');
+      padding: 16px 20px;
+    }
+
+    &.underline {
+      border-bottom: 1px solid t('input-border-color');
+      padding: 16px 0;
+
+      .label {
+        color: t('text-caption');
+      }
+    }
+
+    transition: border-color 0.2s linear, background-color 0.2s linear;
+
+    .label {
+      font-size: 12px;
+      user-select: none;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    &:focus-within {
+      border-color: t('input-focus-border-color');
+    }
+
+    &.errored {
+      border-color: t('bg-danger');
+
+      & + span {
+        font-size: 12px;
+        user-select: none;
+        color: t('bg-danger');
+
+        i {
+          width: 14px;
+          height: 14px;
+          vertical-align: text-top;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    &.success {
+      border-color: t('bg-success');
+
+      & + span {
+        font-size: 12px;
+        user-select: none;
+        color: t('bg-success');
+
+        i {
+          width: 14px;
+          height: 14px;
+          vertical-align: text-top;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    &.locked {
+      &, input, textarea {
+        color: t('text-disabled');
+        background: t('bg-disabled');
+        user-select: none;
+        cursor: default;
+      }
+    }
+
+    textarea {
+      resize: none;
+      user-select: none;
+      width: 100%;
+    }
+  }
+}
+
+.editIcon {
+  cursor: pointer;
+
+  @include themify() {
+    color: t('inactive-slide');
+  }
+  margin-top: -5px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  @include themify() {
+    color: t('inactive-slide');
+  }
+  margin-top: 12px;
+  padding-right: 12px;
+  width: 12px;
+  height: 12px;
+}
+
+.hideIcon {
+  width: 20px;
+  @include themify() {
+    color: t('inactive-slide');
+  }
+  margin-right: 12px;
+  height: 18px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.caption {
+  color: #ccc;
+  user-select: none;
+}

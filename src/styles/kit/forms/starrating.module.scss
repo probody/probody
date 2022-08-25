@@ -1,0 +1,14 @@
+@import "../../themes";
+
+.root {
+  @include themify() {
+    i {
+      color: t('inactive-star');
+      cursor: pointer;
+
+      &.active {
+        color: t('bg-primary');
+      }
+    }
+  }
+}

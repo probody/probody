@@ -1,0 +1,46 @@
+@import "../themes";
+
+.root {
+  border-radius: 20px;
+  position: relative;
+  height: 363px;
+  background-blend-mode: multiply;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .root {
+    height: 250px;
+  }
+}
+
+.withIcon i {
+  @include themify() {
+    color: t('bg-primary');
+  }
+
+  width: 18px;
+  height: 18px;
+  vertical-align: text-bottom;
+  margin-right: 4px;
+}
+
+.label {
+  font-size: 12px;
+
+  @include themify() {
+    color: t('static-gray');
+  }
+
+  margin-bottom: 4px;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 600;
+}

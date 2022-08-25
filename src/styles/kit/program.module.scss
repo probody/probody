@@ -1,0 +1,37 @@
+@import '../themes';
+
+.massageList {
+  margin: 12px 0 0 16px;
+  padding-bottom: 10px;
+
+  li {
+    @include themify() {
+      color: t('another-text-disabled')
+    }
+
+    &::before {
+      content: "\2022";
+
+      @include themify() {
+        color: t('bg-primary');
+      }
+
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  }
+}
+
+.flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.secondSection i {
+  @include themify() {
+    color: t('another-text-disabled')
+  }
+}

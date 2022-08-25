@@ -1,0 +1,56 @@
+@import '../themes';
+
+.root {
+  display: inline-flex;
+  border-radius: 8px;
+  padding: 8px 12px 8px 12px;
+  font-weight: 600;
+  font-size: 12px;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.disabled {
+  @include themify() {
+    color: t('another-text-disabled');
+    background: t('bg-disabled');
+    border: 1px solid t('border-disabled');
+  }
+}
+
+.enabled {
+  @include themify() {
+    background: t('bg-secondlayer');
+    color: t('text-main');
+  }
+}
+
+.toggleable {
+  cursor: pointer;
+  font-size: 16px;
+
+  &.disabled {
+    @include themify() {
+      background: t('bg-secondlayer');
+      color: t('text-main');
+    }
+
+    border: unset;
+  }
+
+  &.enabled {
+    @include themify() {
+      background: t('bg-accent');
+      color: t('text-accent');
+    }
+  }
+
+  &:hover {
+    @include themify() {
+      box-shadow: inset 0 0 0 1px t('bg-accent');
+    }
+  }
+}

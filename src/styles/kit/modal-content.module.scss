@@ -1,0 +1,97 @@
+@import "../themes";
+
+.modalHead {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include themify() {
+    &.desktop {
+      padding: 32px;
+      border-radius: 32px 32px 0 0;
+      background: t('bg-secondlayer');
+      color: t('text-secondlayer');
+    }
+
+    &.mobile {
+      padding: 16px;
+
+      h2 {
+        font-size: 20px;
+        font-weight: normal;
+      }
+
+      //background: t('bg-secondlayer');
+      color: t('text-secondlayer');
+
+      i {
+        width: 16px;
+        height: 16px;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin-top: 12px;
+        background: t('line-color');
+      }
+    }
+  }
+
+  i {
+    cursor: pointer;
+    @include themify() {
+      color: t('text-disabled');
+    }
+  }
+}
+
+.body {
+  input {
+    font-size: 24px;
+    margin-bottom: -5px;
+
+    &[type='password'] {
+      letter-spacing: 5px;
+
+      &::placeholder {
+        letter-spacing: initial;
+      }
+    }
+  }
+
+  &.mobile {
+    padding: 16px;
+  }
+
+  &.desktop {
+    padding: 24px 32px 32px 32px;
+  }
+
+  @include themify() {
+    color: t('text-main');
+  }
+}
+
+.hint {
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-family: Lack, sans-serif;
+}
+
+.caption {
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  font-size: 14px;
+}
+
+.arrowRight {
+  width: 18px;
+  height: 12px;
+}

@@ -1,0 +1,74 @@
+@import "../themes";
+
+.overlay {
+  &.mobile .modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.desktop .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    border-radius: 32px;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .2s linear, backdrop-filter .2s linear;
+
+  &.visible {
+    z-index: 999;
+    visibility: visible;
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+
+  &.useNav {
+    backdrop-filter: none !important;
+    background: transparent;
+
+    .modal {
+      top: 81px;
+      box-shadow: none;
+      height: calc(100% - 81px);
+      overflow: scroll;
+    }
+  }
+}
+
+.closeModal {
+  position: absolute;
+  top: 21px;
+  right: 5%;
+  padding: 6px;
+
+  i {
+    width: 21px;
+    height: 21px;
+  }
+
+  @include themify() {
+    background: t('body-bg');
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+
+  @include themify() {
+    background-color: t('body-bg');
+    box-shadow: 0 0 10px t('accent-shadow');
+  }
+}

@@ -1,0 +1,191 @@
+@import "themes";
+
+.va-middle {
+  vertical-align: middle;
+}
+
+.additional-text {
+  @include themify() {
+    color: t('text-disabled');
+  }
+}
+
+.tag-secondlayer {
+  @include themify() {
+    color: t('tag-secondlayer');
+  }
+}
+
+.outlined {
+  padding: 20px;
+  border-radius: 16px;
+  transition: none;
+
+  @include themify() {
+    border: 1px solid t('line-color');
+  }
+}
+
+.slCard {
+  border-radius: 32px;
+  padding: 20px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.keepFormat {
+  white-space: break-spaces;
+}
+
+.growAll>div {
+  flex-grow: 1;
+
+  button {
+    padding: 14px 0;
+  }
+}
+
+.growFirst>div {
+  &:first-child {
+    flex-grow: 1;
+  }
+
+  button {
+    padding: 14px 16px;
+  }
+}
+
+.bold, strong, b {
+  font-weight: 600;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.fit {
+  height: 100%;
+  width: 100%;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.lineheight-1 {
+  line-height: 1;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+h1.bigger {
+  font-size: 32px;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.vertical-center {
+  align-items: center;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+}
+
+.non-selectable {
+  user-select: none;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.gap-12 {
+  gap: 12px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.items-center {
+  align-items: center;
+  display: flex;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.smallOnMobile {
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .smallOnMobile {
+    font-size: 14px;
+  }
+}

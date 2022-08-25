@@ -1,0 +1,26 @@
+@import "../themes";
+
+.root {
+  border-radius: 32px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+
+  padding: 22px;
+}
+
+.label {
+  font-size: 12px;
+
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  margin-bottom: 4px;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 600;
+}

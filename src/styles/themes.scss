@@ -1,0 +1,110 @@
+$primary: #ffc83a;
+$dark: #252420;
+$white1: #F6F6F6;
+$white2: #f7f7f7;
+$disabled: #616161;
+$grey1: #9A9A9A;
+$disabled2: #b9b9b9;
+$grey2: #ccc;
+$line: #454543;
+$grey3: #5a5a5a;
+$danger: #F9703C;
+$success: #6FCF97;
+$tertiary: #e4e4e4;
+$secondary: #000;
+$white: #fff;
+
+$themes: (
+        light: (
+                bg-primary: $primary,
+                bg-secondary: $dark,
+                bg-tertiary: $tertiary,
+                bg-disabled: $white1,
+                bg-success: $success,
+                bg-danger: $danger,
+                body-bg: $white,
+                text-main: $dark,
+                text-primary: $dark,
+                text-secondary: $white1,
+                text-tertiary: $dark,
+                text-disabled: $disabled,
+                text-caption: $disabled,
+                link-color: $dark,
+                input-focus-border-color: $dark,
+                input-border-color: $grey2,
+                logo-color: $dark,
+                line-color: $tertiary,
+                bg-secondlayer: $white2,
+                text-secondlayer: $dark,
+                border-accent-color: $disabled,
+                bg-accent: $dark,
+                text-accent: $white2,
+                accent-shadow: #6a6a6a,
+                another-text-disabled: $grey1,
+                border-disabled: $grey1,
+                secondlayer-accent-bg: $white,
+                secondlayer-accent-text: $dark,
+                inactive-slide: $grey1,
+                range: $dark,
+                static-gray: $grey2,
+                inactive-star: $tertiary,
+                tag-secondlayer: $line,
+                thirdlayer-bg: $tertiary,
+                bg-onTheDark: $line,
+        ),
+        dark: (
+                bg-primary: $primary,
+                bg-secondary: $secondary,
+                bg-tertiary: $tertiary,
+                bg-disabled: $line,
+                bg-success: $success,
+                bg-danger: $danger,
+                body-bg: $dark,
+                link-color: $white2,
+                text-main: $white2,
+                text-primary: $dark,
+                text-secondary: $white1,
+                text-tertiary: $dark,
+                text-disabled: $disabled2,
+                text-caption: $grey2,
+                input-focus-border-color: $white1,
+                border-accent-color: $grey2,
+                input-border-color: $disabled,
+                logo-color: $white2,
+                line-color: $line,
+                bg-secondlayer: $line,
+                text-secondlayer: $grey2,
+                bg-accent: $white2,
+                text-accent: $dark,
+                accent-shadow: $grey3,
+                another-text-disabled: $disabled,
+                border-disabled: $grey1,
+                secondlayer-accent-bg: $white2,
+                secondlayer-accent-text: $dark,
+                inactive-slide: $grey1,
+                range: $primary,
+                static-gray: $grey2,
+                inactive-star: $line,
+                tag-secondlayer: $grey2,
+                thirdlayer-bg: $disabled,
+                bg-onTheDark: $tertiary
+        )
+);
+
+@mixin themify() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

@@ -1,0 +1,22 @@
+.pic {
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.root {
+  transition: border-color .3s ease;
+  &:hover {
+    border-color: #252420;
+
+    .actions {
+      //TODO paint
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px 0;
+}

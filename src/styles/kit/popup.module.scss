@@ -1,0 +1,42 @@
+@import "../themes";
+
+.root {
+  position: relative;
+
+  &.fullsize {
+    position: initial;
+  }
+}
+
+.popup {
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  overflow: auto;
+
+  @include themify() {
+    background: t('body-bg');
+    box-shadow: 1px 11px 32px -15px t('accent-shadow');
+  }
+
+  top: 24px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity .2s linear;
+  padding: 24px;
+
+  &.open {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+  }
+
+  &.fullsize {
+    left: 0;
+    top: 82px;
+    width: 100%;
+    height: calc(100% - 82px);
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

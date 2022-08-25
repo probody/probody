@@ -1,0 +1,11 @@
+@import "../themes";
+
+.infoBlock {
+  @include themify() {
+    background: t('bg-accent');
+    color: t('text-accent');
+  }
+
+  border-radius: 32px;
+  padding: 20px;
+}

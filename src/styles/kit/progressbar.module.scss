@@ -1,0 +1,27 @@
+@import "../themes";
+
+.root {
+  @include themify() {
+    background-color: t('bg-secondlayer');
+  }
+
+  width: 100%;
+  border-radius: 3px;
+  height: 8px;
+
+  &.mobile {
+    height: 4px;
+    margin-top: 16px;
+  }
+
+  .progress {
+    @include themify() {
+      background-color: t('bg-primary');
+    }
+
+    height: 100%;
+    width: 0;
+    border-radius: 3px;
+    transition: width 0.3s ease-in-out;
+  }
+}

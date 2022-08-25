@@ -1,0 +1,30 @@
+@import "../themes";
+
+.body {
+  display: flex;
+  user-select: none;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.item {
+  font-size: 12px;
+  font-weight: 600;
+
+  &:last-child {
+    @include themify() {
+      color: t('text-disabled');
+    }
+
+    cursor: default;
+  }
+
+  &:not(:last-child) {
+    cursor: pointer;
+
+    &::after {
+      content: " - ";
+      margin-left: 8px;
+    }
+  }
+}

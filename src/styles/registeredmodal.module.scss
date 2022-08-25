@@ -1,0 +1,23 @@
+@import "themes";
+
+.modalBody {
+  padding: 24px;
+
+  button {
+    margin-top: 16px;
+  }
+
+  p, h1 {
+    @include themify() {
+      color: t('text-main')
+    }
+  }
+
+  .modalClose {
+    position: absolute;
+    bottom: -40px;
+    left: 45%;
+    cursor: pointer;
+    color: #e4e4e4;
+  }
+}

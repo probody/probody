@@ -1,0 +1,69 @@
+@import '../themes';
+
+.root {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dayOfMonth {
+  text-align: center;
+  //padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+
+  &:not(.today) {
+    margin: 0 4px 2px;
+  }
+
+  span {
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 8px;
+    font-weight: 600;
+  }
+
+  div {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.enabled {
+  @include themify() {
+    color: t('text-main');
+  }
+}
+
+.disabled {
+  color: #9A9A9A;
+}
+
+.today {
+  @include themify() {
+    background: t('bg-accent');
+  }
+
+  border-radius: 16px;
+  padding: 0 2px;
+
+  span {
+    @include themify() {
+      color: t('text-accent');
+    }
+
+    padding: 8px 0 4px 0;
+  }
+
+  div {
+    @include themify() {
+      background: t('bg-secondlayer');
+    }
+
+    border-radius: 12px;
+    margin: 3px 1px;
+    //padding: 4px 10px;
+    width: 39px;
+    height: 39px;
+    padding-top: 4px;
+  }
+}

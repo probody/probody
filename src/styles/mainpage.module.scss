@@ -1,0 +1,477 @@
+@import "themes";
+@import "articlecard.module";
+@import "kit/socialblock.module";
+@import "kit/modal-content.module";
+@import "menu.module";
+@import "kit/forms/hybrid-search-input.module";
+
+.kindSelector {
+  padding: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+
+  font-family: Lack, sans-serif;
+
+  .kindContainer {
+    justify-content: space-between;
+
+    &>div>div {
+      margin: 0;
+    }
+
+    span {
+      @include themify() {
+        color: t('text-disabled');
+      }
+    }
+  }
+
+  @include themify() {
+    background-color: t('bg-secondlayer');
+    color: t('text-secondlayer');
+  }
+}
+
+.filterContainer {
+  max-height: 375px;
+  position: relative;
+
+  & > div {
+    min-width: 250px;
+  }
+}
+
+.collapseBody {
+  padding: 0 16px;
+
+  span {
+    @include themify() {
+      color: t('text-caption');
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .filterContainer {
+    grid-gap: 0;
+  }
+
+  .mapView {
+    height: 70vh !important;
+
+    &, & > ymaps {
+      border-radius: 32px 0;
+      overflow: hidden;
+      width: 100% !important;
+
+      & > ymaps, & > ymaps > ymaps {
+        border-radius: 32px 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .chosenSalon {
+    top: unset !important;
+    bottom: 0;
+    left: 0 !important;
+    width: 100% !important;
+    height: fit-content !important;
+    border-radius: 32px 32px 0 0 !important;
+    box-shadow: unset !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .verticalBetween {
+    display: flex !important;
+  }
+}
+
+.verticalBetween {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resetBtn {
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  font-family: Lack, sans-serif;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.stretchContainer {
+  display: flex;
+  gap: 4px;
+
+  & > div {
+    flex-grow: 1;
+
+    button {
+      width: 100%;
+      padding: 12px 0;
+    }
+
+    &:first-child button {
+      padding: 13px 0;
+    }
+
+    &:nth-child(2) {
+      max-width: 48px;
+    }
+  }
+}
+
+.fullSizeBtn > div, .fullSizeBtn > div > button {
+  width: 100%;
+}
+
+.invisibleScroll {
+  scrollbar-width: none;
+  display: flex;
+  overflow-x: scroll;
+  gap: 8px;
+  padding-right: 16px;
+  max-width: 100vw;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mapContainer {
+  position: relative;
+  margin-top: 16px;
+
+  .chosenSalon {
+    position: absolute;
+    top: 24px;
+    box-shadow: 0 9px 25px rgba(37, 36, 32, 0.14);
+    left: 24px;
+    width: 375px;
+    height: calc(100% - 48px);
+    z-index: 99;
+    border-radius: 32px;
+
+    @include themify() {
+      background: t('body-bg');
+    }
+
+    .content {
+      padding: 20px;
+      margin-bottom: 60px;
+
+      .closeIcon {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+
+        @include themify() {
+          color: t('another-text-disabled');
+        }
+      }
+
+      .reviewSection {
+        display: flex;
+        gap: 24px;
+        margin-top: 8px;
+
+        i {
+          width: 15px;
+          height: 14px;
+          vertical-align: sub;
+          margin-right: 4px;
+
+          &+span {
+            vertical-align: top;
+          }
+        }
+
+        div:last-child {
+          @include themify() {
+            color: t('text-disabled');
+          }
+        }
+      }
+
+      .buttonLayout {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        gap: 3px;
+        width: calc(100% - 40px);
+
+        button {
+          width: 100%;
+          padding: 14px;
+        }
+
+        &>div:first-child, &>div:last-child {
+          flex-grow: 1;
+        }
+
+        &>div:last-child button {
+          padding: 15px 0;
+        }
+      }
+    }
+  }
+
+  .mapView {
+    width: 100%;
+    height: 545px;
+
+    &, & > ymaps {
+      border-radius: 32px;
+      overflow: hidden;
+      width: 100% !important;
+
+      & > ymaps, & > ymaps > ymaps {
+        border-radius: 32px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.searchNearMeBtn {
+  margin-right: 20px;
+  font-size: 18px;
+  padding: 16px 29px;
+}
+
+.ellipsis {
+  max-height: calc(24px * 3);
+  line-height: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.padded {
+  padding: 16px;
+}
+
+.workerBlock {
+  grid-gap: 8px;
+
+  &::after {
+    content: " ";
+    display: block;
+    grid-column: span 12;
+    width: 80%;
+    margin: 24px auto 16px auto;
+    height: 1px;
+
+    @include themify() {
+      background-color: t('line-color');
+    }
+  }
+}
+
+.radioChecked+span {
+  @include themify() {
+    color: t('text-main') !important;
+  }
+}
+
+.showMoreBtn {
+  i {
+    margin-left: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  margin-bottom: 24px;
+}
+
+.avgRating {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: fit-content;
+  font-size: 20px;
+  padding-right: 16px;
+
+  i {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+
+    @include themify() {
+      color: t('bg-primary');
+    }
+  }
+}
+
+.stickToBottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
+@media (min-width: 480px) {
+  .switchRoot {
+    width: 248px !important;
+  }
+}
+
+.switchRoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Lack, sans-serif;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 16px;
+  user-select: none;
+  padding: 4px;
+  gap: 12px;
+  margin-right: 8px;
+
+  @include themify() {
+    background-color: t('bg-secondlayer');
+    color: t('text-secondlayer');
+  }
+
+  div {
+    width: 50%;
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+
+    @include themify() {
+      color: t('text-disabled');
+    }
+
+    &.active {
+      @include themify() {
+        background-color: t('body-bg');
+        color: t('text-main');
+      }
+    }
+  }
+}
+
+.linkUnderline {
+  cursor: pointer;
+  font-family: Lack, sans-serif;
+
+  &::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    @include themify() {
+      background-color: t('bg-primary');
+    }
+  }
+}
+
+.shortInfoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-end;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+
+    & > div:first-child:not(.avgRating) {
+      @include themify() {
+        color: t('text-disabled');
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.inputGroup {
+  align-items: center;
+  padding: 16px;
+
+  i:last-child {
+    color: #9A9A9A;
+    width: 12px;
+    height: 12px;
+    margin-top: -3px;
+  }
+
+  input {
+    margin: 0 8px;
+
+    &::placeholder {
+      color: #9A9A9A;
+    }
+  }
+
+  @include themify() {
+    border: 1px solid t('input-border-color');
+    border-radius: 16px;
+  }
+}
+
+.helperText {
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.filterButton {
+  padding: 16px;
+  //min-width: 120px;
+  border-radius: 16px;
+
+  & > span {
+    display: flex;
+    align-items: center;
+  }
+
+  @include themify() {
+    i {
+      color: t('bg-primary');
+    }
+  }
+
+  span.cnt {
+    background-color: white;
+    color: #252420;
+    font-family: Lato, sans-serif;
+    border-radius: 8px;
+    margin-right: 8px;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 12px;
+    align-items: center;
+    line-height: 1;
+  }
+}
+
+.verifiedIcon {
+  width: 18px;
+  vertical-align: text-top;
+  height: 18px;
+  margin-right: 4px;
+
+  @include themify() {
+    color: t('text-main')
+  }
+}

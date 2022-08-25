@@ -1,0 +1,93 @@
+@import "themes";
+
+.root {
+  border-radius: 20px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+
+  padding: 20px;
+}
+
+.name {
+  //font-size: 20px;
+  font-family: Lack, sans-serif;
+
+  @include themify() {
+    color: t('text-main');
+  }
+}
+
+.text {
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.date {
+    font-size: 12px;
+
+  @include themify() {
+    color: t('text-main');
+  }
+}
+
+.withSpacer {
+  @include themify() {
+    border-bottom: 1px solid t('line-color');
+  }
+}
+
+.answer {
+  padding-left: 20px;
+  font-size: 14px;
+
+  @include themify() {
+    border-left: 1px solid t('line-color');
+  }
+}
+
+.gradeContainer {
+  &>div>div {
+    font-weight: 600;
+  }
+
+  @include themify() {
+    border-bottom: 1px solid t('line-color');
+  }
+
+  padding-bottom: 12px;
+
+  span {
+    font-size: 12px;
+    @include themify() {
+      color: t('text-disabled');
+    }
+
+    &.general {
+      @include themify() {
+        color: t('text-main');
+      }
+    }
+  }
+}
+
+.star {
+  @include themify() {
+    color: t('bg-primary') !important;
+  }
+  margin-right: 8px;
+
+  i {
+    width: 16px;
+    height: 16px;
+  }
+
+  & + span {
+    font-size: 20px;
+  }
+}

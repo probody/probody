@@ -1,0 +1,79 @@
+@import "../contactus.module";
+@import "../themes";
+
+.img1 {
+  background: url("/illustrations/aboutus1.svg") no-repeat center/contain;
+  width: 100%;
+  user-select: none;
+  min-height: 205px;
+}
+
+.caption {
+  @include themify() {
+    color: t('text-disabled');
+  }
+
+  &.jumbotronText {
+    margin-top: 20px;
+    margin-bottom: 48px;
+  }
+}
+
+.featureBlock {
+  display: flex;
+  gap: 24px;
+  border-radius: 32px;
+  padding: 30px;
+
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+
+  &>div:first-child {
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-width: 120px;
+    min-height: 120px;
+    user-select: none;
+  }
+
+  &:nth-child(1)>div:first-child {
+      background-image: url("/illustrations/aboutus1.feature.svg");
+  }
+
+  &:nth-child(2)>div:first-child {
+    background-image: url("/illustrations/aboutus2.feature.svg");
+  }
+
+  &:nth-child(3)>div:first-child {
+    background-image: url("/illustrations/aboutus3.feature.svg");
+  }
+
+  &:nth-child(4)>div:first-child {
+    background-image: url("/illustrations/aboutus4.feature.svg");
+  }
+}
+
+@media (max-width: 480px) {
+  .caption.jumbotronText {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+
+  .featureBlock {
+    gap: 8px;
+    padding: 16px 22px 16px 8px;
+  }
+
+  .featureBlock>div:first-child {
+    min-width: 72px;
+    min-height: 72px;
+  }
+}
+
+@media (min-width: 480px) {
+  .featureBlock>div:last-child>p:first-child {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+}

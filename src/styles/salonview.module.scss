@@ -1,0 +1,246 @@
+@import "themes";
+@import "articlecard.module";
+@import "kit/socialblock.module";
+@import "kit/modal-content.module";
+
+.padded {
+  padding: 16px
+}
+
+.verifiedIcon {
+  width: 18px;
+  vertical-align: text-top;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.reviewModalContent {
+  //display: flex;
+  //flex-direction: column;
+  //gap: 24px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &.underlined > div:not(:last-child)::after {
+    width: 100%;
+    height: 1px;
+    content: ' ';
+    user-select: none;
+    display: block;
+
+    @include themify() {
+      background: t('line-color');
+    }
+  }
+}
+
+.modalBody {
+  padding: 24px;
+
+  button {
+    margin-top: 16px;
+  }
+
+  p, h1 {
+    @include themify() {
+      color: t('text-main')
+    }
+  }
+
+  .modalClose {
+    position: absolute;
+    bottom: -40px;
+    left: 45%;
+    cursor: pointer;
+    color: #e4e4e4;
+  }
+}
+
+.avgRating {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: fit-content;
+  font-size: 20px;
+  font-weight: 600;
+  padding-right: 16px;
+
+  i {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+
+    @include themify() {
+      color: t('bg-primary');
+    }
+  }
+}
+
+.mapMobile {
+  height: 220px;
+
+  &, & > ymaps {
+    border-radius: 32px;
+    overflow: hidden;
+    width: 100% !important;
+
+    & > ymaps, & > ymaps > ymaps {
+      border-radius: 32px;
+      overflow: hidden;
+    }
+  }
+}
+
+.shortInfoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+
+    & > div:first-child:not(.avgRating) {
+      @include themify() {
+        color: t('text-disabled');
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.photo {
+  user-select: none;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+  cursor: zoom-in;
+}
+
+.divider {
+  margin: 16px 0;
+  user-select: none;
+  width: 100%;
+  height: 1px;
+
+  @include themify() {
+    background: t('line-color');
+  }
+}
+
+.textSectionDecorator {
+  margin-bottom: 16px;
+}
+
+.stretchContainer {
+  display: flex;
+  gap: 4px;
+
+  &.stickToBottom {
+    padding: 20px;
+    border-radius: 30px 30px 0 0;
+    margin-top: 24px;
+    box-shadow: 0px -7px 35px rgba(37, 36, 32, 0.18);
+
+    @include themify() {
+      background: t('bg-secondlayer');
+    }
+  }
+
+  & > div {
+    flex-grow: 1;
+
+    &:first-child i {
+      margin-right: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 0;
+    }
+  }
+}
+
+.showMoreBtn i {
+  margin-left: 16px;
+  width: 22px;
+  height: 22px;
+}
+
+.stickToBottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.fullSizeBtn > div, .fullSizeBtn > div > button {
+  width: 100%;
+}
+
+.fullSizeBtnResponsive > div, .fullSizeBtnResponsive > div > button {
+  max-width: 250px;
+}
+
+.masters:not(.invisibleScroll) > div > div > div {
+  height: 500px;
+}
+
+.fullSizeBtnResponsive {
+  margin-top: 16px;
+}
+
+.invisibleScroll {
+  scrollbar-width: none;
+  display: flex;
+  overflow-x: scroll;
+  gap: 8px;
+  padding: 0 16px;
+  max-width: 100vw;
+
+  & > div > div {
+    width: 80vw;
+  }
+
+  &.masters > div > div {
+    width: 50vw;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullSizeBtnResponsive > div, .fullSizeBtnResponsive > div > button {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 480px) {
+  .stretchContainer i {
+    margin-right: 10px;
+  }
+}
+
+.linkUnderline {
+  cursor: pointer;
+  font-family: Lack, sans-serif;
+
+  &::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    @include themify() {
+      background-color: t('bg-primary');
+    }
+  }
+}

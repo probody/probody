@@ -1,0 +1,92 @@
+@import "../../themes";
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+  gap: 12px;
+  cursor: pointer;
+  //justify-content: space-between;
+  align-items: center;
+
+  &.column {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.caption {
+  color: #616161;
+  font-size: 13px;
+  user-select: none;
+}
+
+.radioItem {
+  display: inline-block;
+
+  &:hover .radio {
+    @include themify() {
+      border: 1px solid t('bg-accent');
+    }
+  }
+
+  span {
+    padding-left: 8px;
+  }
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 24px;
+  margin-bottom: 16px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #9A9A9A;
+
+  &.checked {
+    @include themify() {
+      border: 1px solid t('bg-accent');
+    }
+
+    &::after {
+      content: " ";
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+
+    & + span {
+      @include themify() {
+        color: t('text-main');
+      }
+    }
+  }
+}
+
+.theme--light .radio.checked::after {
+  animation: fillInLightMode .3s ease;
+  animation-fill-mode: both;
+}
+
+.theme--dark .radio.checked::after {
+  animation: fillInDarkMode .3s ease;
+  animation-fill-mode: both;
+}
+
+@keyframes fillInDarkMode {
+  to {
+    background-color: #f7f7f7;
+  }
+}
+
+@keyframes fillInLightMode {
+  to {
+    background-color: #252420;
+  }
+}

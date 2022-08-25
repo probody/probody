@@ -1,0 +1,59 @@
+@import "themes";
+
+.menu {
+  @include themify() {
+    background: t('bg-secondlayer');
+  }
+
+  border-radius: 32px;
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+  left: 20px;
+}
+
+.list li {
+  font-size: 20px;
+  padding: 16px 0;
+  font-family: Lack, sans-serif;
+
+  @include themify() {
+    border-bottom: 1px solid t('input-border-color');
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:hover {
+    @include themify() {
+      border-bottom: 1px solid t('text-main');
+
+      a {
+        color: t('text-main');
+      }
+    }
+  }
+
+  &.active {
+    @include themify() {
+      border-bottom: 1px solid t('text-main');
+
+      a {
+        color: t('text-main');
+      }
+    }
+  }
+
+  a {
+    @include themify() {
+      color: t('text-disabled');
+    }
+
+    text-decoration: none;
+  }
+}
+
+.stretchBtn>div, .stretchBtn button {
+  width: 100%;
+}

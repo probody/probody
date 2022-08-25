@@ -1,0 +1,46 @@
+@import "../../themes";
+
+.root {
+  @include themify() {
+    border: 1px solid t('input-border-color');
+  }
+
+  border-radius: 16px;
+}
+
+.inputGroup {
+  align-items: center;
+  padding: 16px 0;
+
+  i:last-child {
+    color: #9A9A9A;
+    width: 12px;
+    height: 12px;
+    margin-top: -3px;
+  }
+
+  input {
+    margin: 0 8px;
+
+    &::placeholder {
+      color: #9A9A9A;
+      font-family: Lack, sans-serif;
+    }
+  }
+}
+
+.customSelect {
+  border: unset !important;
+  padding: 0 8px !important;
+}
+
+.rightSplitter {
+  width: 1px;
+  margin: 16px 8px;
+  display: inline-block;
+  height: 80%;
+
+  @include themify() {
+    background: t('input-border-color');
+  }
+}

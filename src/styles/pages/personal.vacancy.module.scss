@@ -1,0 +1,67 @@
+@import "../themes";
+@import "../registeredmodal.module";
+@import "../articlecard.module";
+
+.vacancyList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+
+  &>div {
+    gap: 0 8px;
+  }
+
+  &>div:not(:last-child)::after {
+    height: 1px;
+    width: 100%;
+    display: inline-block;
+    content: ' ';
+    user-select: none;
+    margin-top: 32px;
+
+    @include themify() {
+      background: t('line-color');
+    }
+  }
+
+  &.dense>div:not(:last-child)::after {
+    margin-top: 20px;
+  }
+}
+
+.arrowBack {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  i {
+    margin-right: 12px;
+    width: 16px;
+    height: 15px;
+  }
+}
+
+.actionContainer {
+  display: flex;
+  gap: 3px;
+  padding: 20px;
+
+  &>div:first-child {
+    flex-grow: 1;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  &>div:last-child button {
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vacancyList>div {
+    gap: 8px;
+  }
+}

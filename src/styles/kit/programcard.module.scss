@@ -1,0 +1,76 @@
+@import "../themes";
+
+.root {
+  border-radius: 20px;
+  padding: 16px;
+  width: 160px;
+  cursor: pointer;
+  user-select: none;
+
+  @include themify() {
+    background: t('text-main');
+
+    &.mock {
+      background: t('bg-tertiary');
+
+      .label {
+        color: t('text-tertiary');
+      }
+
+      .value {
+        margin-top: 13px;
+      }
+    }
+  }
+
+  .value {
+    @include themify() {
+      color: t('text-accent');
+    }
+  }
+
+  i {
+    color: #9A9A9A;
+    vertical-align: text-top;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+}
+
+.label {
+  @include themify() {
+    color: t('text-accent');
+  }
+
+  margin-bottom: -10px;
+}
+
+.value {
+  font-size: 12px;
+  margin-top: 24px;
+
+  &:last-child {
+    margin-top: 8px;
+  }
+}
+
+.arrowRight {
+  @include themify() {
+    color: t('bg-primary') !important;
+  }
+
+  width: 22px !important;
+  height: 14px !important;
+  cursor: pointer;
+}
+
+.plusIcon {
+  cursor: pointer;
+  width: 24px !important;
+  height: 24px !important;
+
+  @include themify() {
+    color: t('text-tertiary') !important;
+  }
+}

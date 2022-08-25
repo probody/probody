@@ -1,0 +1,84 @@
+@import "../themes";
+
+.root {
+  padding: 20px;
+  user-select: none;
+  border-radius: 16px;
+
+  @include themify() {
+    border: 1px solid t('line-color');
+  }
+}
+
+.chevron {
+  width: 10px;
+  height: 18px;
+}
+
+.disabled {
+  cursor: default !important;
+
+  @include themify() {
+    color: t('another-text-disabled');
+  }
+}
+
+.tableRoot {
+  width: 100%;
+  margin-top: 24px;
+
+  th {
+    font-size: 12px;
+    font-weight: 400;
+    padding-bottom: 12px;
+    text-transform: capitalize;
+
+    @include themify() {
+      color: t('tag-secondlayer');
+    }
+  }
+
+  .day {
+    padding: 9px 7px;
+    border-radius: 8px;
+    text-align: center;
+    width: 33px;
+    height: 34px;
+    transition: border-color .2s linear, background-color .2s linear;
+    border: 1px solid transparent;
+    margin-left: 5px;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(.disabled) {
+      cursor: pointer;
+
+      &:hover {
+        @include themify() {
+          border-color: t('text-main');
+        }
+      }
+    }
+
+    &.checked {
+      @include themify() {
+        background: t('bg-primary');
+      }
+    }
+
+    &.disabled {
+      @include themify() {
+        color: t('another-text-disabled');
+      }
+    }
+
+    &.today {
+      @include themify() {
+        border-color: t('bg-primary');
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import "../themes";
+
+.accent {
+  @include themify() {
+    color: t('bg-primary');
+  }
+}
+
+.caption {
+  color: #9A9A9A;
+  font-size: 12px;
+}

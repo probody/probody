@@ -1,0 +1,54 @@
+@import "themes";
+
+.socialBlock {
+  display: flex;
+
+  div {
+    display: inline-flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+    .img {
+      padding: 16px;
+      border-radius: 18px;
+
+      @include themify() {
+        color: t('body-bg');
+      }
+
+      i {
+        width: 20px;
+        height: 20px;
+      }
+
+      @include themify() {
+        border: 1px solid t('border-accent-color');
+
+        &:hover {
+          border: 1px solid t('bg-primary');
+
+          i {
+            color: t('bg-primary');
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .mbOnDesktop {
+    margin-bottom: 24px;
+  }
+
+  .socialRoot_thin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .socialRoot_thin h3 {
+    margin-bottom: 0 !important;
+  }
+}

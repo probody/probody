@@ -1,0 +1,46 @@
+@import "../themes";
+
+.root {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-blend-mode: multiply;
+  width: 100px;
+  height: 150px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #f7f7f7;
+  font-size: 12px;
+  font-family: Lack, sans-serif;
+
+  &.mock {
+    @include themify() {
+      background: t('bg-tertiary');
+      color: t('text-tertiary');
+    }
+  }
+
+  span {
+    padding: 8px;
+    width: fit-content;
+  }
+
+  i:not(.plusIcon) {
+    @include themify() {
+      color: t('bg-primary');
+    }
+
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+  }
+
+  &.short {
+    height: 220px;
+    width: 170px;
+  }
+}
